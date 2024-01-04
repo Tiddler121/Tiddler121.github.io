@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Button Design</title>
+  <title>按钮切换照片</title>
   <style>
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 16px;
-    }
-    
-    .button:hover {
-      background-color: #0056b3;
+    .picture {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <button class="button" onclick="showMessage('Button 1 Clicked!')">Button 1</button>
-  <button class="button" onclick="showMessage('Button 2 Clicked!')">Button 2</button>
-  <button class="button" onclick="showMessage('Button 3 Clicked!')">Button 3</button>
+  <button onclick="showPicture('picture1')">按钮1</button>
+  <button onclick="showPicture('picture2')">按钮2</button>
+  <button onclick="showPicture('picture3')">按钮3</button>
+
+  <img id="picture1" class="picture" src="picture1.jpg">
+  <img id="picture2" class="picture" src="picture2.jpg">
+  <img id="picture3" class="picture" src="picture3.jpg">
 
   <script>
-    function showMessage(message) {
-      alert(message);
+    function showPicture(pictureId) {
+      // 隐藏所有照片
+      var pictures = document.getElementsByClassName("picture");
+      for (var i = 0; i < pictures.length; i++) {
+        pictures[i].style.display = "none";
+      }
+
+      // 显示指定的照片
+      var picture = document.getElementById(pictureId);
+      picture.style.display = "block";
     }
   </script>
 </body>
