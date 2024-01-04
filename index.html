@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>小鱼地理作业</title>
+  <title>地理专业</title>
   <style>
     body {
-      background-image: url("Background .jpg");
-      /* 设置背景图片 */
-      background-repeat: no-repeat;
-      background-size: cover;
-      /* 让图片充满整个背景 */
       position: relative;
-      /* 相对定位，为了设置渐变覆盖层的位置和大小 */
+      /* 相对定位，为了设置伪元素的位置 */
+      overflow: hidden;
+      /* 隐藏超出部分 */
     }
 
-    .overlay {
+    body::before {
+      content: "";
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      /* 设置渐变覆盖层的位置和大小 */
+      top: 0;
+      left: 0;
       background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
       /* 设置透明度渐变 */
+      z-index: -1;
+      /* 将伪元素放到底层，使其在背景下面 */
     }
 
     .button {
@@ -41,9 +40,6 @@
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
-  <!-- 添加一个渐变覆盖层 -->
-
   <h1>地理专业</h1>
 
   <button class="button" onclick="showContent('button1')">按钮1</button>
